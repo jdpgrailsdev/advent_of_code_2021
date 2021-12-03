@@ -11,7 +11,7 @@ class Puzzle02(PuzzleInterface):
     """Defines the day 2 puzzle"""
 
     def execute(self) -> None:
-        """Executes the day 1 puzzle"""
+        """Executes the day 2 puzzle"""
         input_file = open(INPUT_FILE_NAME, "r")
         directions = input_file.readlines()
         self.__part1(directions)
@@ -38,7 +38,7 @@ class Puzzle02(PuzzleInterface):
         )
 
     def __part2(self, directions):
-        """Executes the day 2 puzzle part 1"""
+        """Executes the day 2 puzzle part 2"""
         horizontal_pos = 0
         depth = 0
         aim = 0

@@ -37,6 +37,7 @@ class Puzzle01(PuzzleInterface):
         )
 
     def __part2(self, measurements):
+        """Executes the day 1 puzzle part 2"""
         previous = None
         current = None
         increase_count = 0
