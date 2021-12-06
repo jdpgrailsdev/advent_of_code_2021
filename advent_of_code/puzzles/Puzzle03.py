@@ -1,6 +1,7 @@
 """Day 3 Puzzle"""
 
 import os
+from collections import Counter
 
 from advent_of_code.puzzles.PuzzleInterface import PuzzleInterface
 

@@ -14,7 +14,7 @@ def cli() -> None:
 @cli.command()
 def execute():
     """Executes each puzzle"""
-    modules = listdir(path.dirname(__file__) + "/puzzles")
+    modules = sorted(listdir(path.dirname(__file__) + "/puzzles"))
 
     for m in modules:
         if re.search("Puzzle\\d+\\.py", m):
