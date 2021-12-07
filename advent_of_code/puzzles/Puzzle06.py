@@ -22,23 +22,26 @@ class Puzzle06(PuzzleInterface):
     def __part1(self, data):
         """Executes the day 6 puzzle part 1"""
 
-        ages = list(map(int, data[0].split(',')))
+        ages = list(map(int, data[0].split(",")))
         days = 80
 
         new_ages = self.__compute_ages(ages, days)
-        print(f"#06 (part 1) - The number of lanternfish after {days} days is {len(new_ages)}")
+        print(
+            f"#06 (part 1) - The number of lanternfish after {days} days is"
+            f" {len(new_ages)}"
+        )
 
     def __part2(self, data):
         """Executes the day 6 puzzle part 2"""
 
-        ages = list(map(int, data[0].split(',')))
+        ages = list(map(int, data[0].split(",")))
         original_days = 80
+        days = 256
         new_ages = self.__compute_ages(ages, original_days)
-        growth_rate = (len(new_ages) - len(ages))/len(ages)
+        growth_rate = (len(new_ages) - len(ages)) / len(ages)
         print(growth_rate)
-        growth = len(ages) * int(math.pow(growth_rate, days//original_days))
+        growth = len(ages) * int(math.pow(growth_rate, days // original_days))
         print(f"#06 (part 2) - The number of lanternfish after {days} days is {growth}")
-
 
     def __compute_ages(self, ages, days):
         new_ages = []
