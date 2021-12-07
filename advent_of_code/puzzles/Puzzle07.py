@@ -1,6 +1,5 @@
 """Day 7 Puzzle"""
 
-import math
 import os
 import sys
 
