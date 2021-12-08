@@ -39,7 +39,6 @@ class Puzzle06(PuzzleInterface):
         days = 256
         new_ages = self.__compute_ages(ages, original_days)
         growth_rate = (len(new_ages) - len(ages)) / len(ages)
-        print(growth_rate)
         growth = len(ages) * int(math.pow(growth_rate, days // original_days))
         print(f"#06 (part 2) - The number of lanternfish after {days} days is {growth}")
 

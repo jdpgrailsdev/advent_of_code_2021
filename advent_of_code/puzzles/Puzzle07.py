@@ -17,7 +17,7 @@ class Puzzle07(PuzzleInterface):
         data = input_file.read().splitlines()
 
         self.__part1(data)
-        self.__part2(data)
+        # self.__part2(data)
 
     def __part1(self, data):
         """Executes the day 7 puzzle part 1"""
