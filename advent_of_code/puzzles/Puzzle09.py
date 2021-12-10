@@ -2,9 +2,9 @@
 
 import os
 import sys
+from functools import reduce
 
 from advent_of_code.puzzles.PuzzleInterface import PuzzleInterface
-from functools import reduce
 
 INPUT_FILE_NAME = os.path.join(os.path.dirname(__file__), "../input/09.txt")
 
@@ -18,7 +18,7 @@ class Puzzle09(PuzzleInterface):
         data = input_file.read().splitlines()
 
         self.__part1(data)
-        #self.__part2(data)
+        # self.__part2(data)
 
     def __part1(self, data):
         """Executes the day 9 puzzle part 1"""
@@ -33,16 +33,28 @@ class Puzzle09(PuzzleInterface):
 
             for pos, h in enumerate(d):
                 height = int(h)
-                next_value = int(d[pos + 1]) if pos < len(d) - 1 else sys.maxsize * 2 + 1
-                next_down = int(data[i + 1][pos]) if i < len(data) - 1 else sys.maxsize * 2 + 1
+                next_value = (
+                    int(d[pos + 1]) if pos < len(d) - 1 else sys.maxsize * 2 + 1
+                )
+                next_down = (
+                    int(data[i + 1][pos]) if i < len(data) - 1 else sys.maxsize * 2 + 1
+                )
                 prev_up = int(data[i - 1][pos]) if i > 0 else sys.maxsize * 2 + 1
 
-                if height < prev_value and height < next_value and height < prev_up and height < next_down:
-                    risk_level += (height + 1)
+                if (
+                    height < prev_value
+                    and height < next_value
+                    and height < prev_up
+                    and height < next_down
+                ):
+                    risk_level += height + 1
 
                 prev_value = height
 
-        print(f"#09 (part 1) - The sum of the risk levels for all low points is {risk_level}")
+        print(
+            "#09 (part 1) - The sum of the risk levels for all low points is"
+            f" {risk_level}"
+        )
 
     def __part2(self, data):
         """Executes the day 9 puzzle part 2"""
@@ -57,17 +69,29 @@ class Puzzle09(PuzzleInterface):
 
             for pos, h in enumerate(d):
                 height = int(h)
-                next_value = int(d[pos + 1]) if pos < len(d) - 1 else sys.maxsize * 2 + 1
-                next_down = int(data[i + 1][pos]) if i < len(data) - 1 else sys.maxsize * 2 + 1
+                next_value = (
+                    int(d[pos + 1]) if pos < len(d) - 1 else sys.maxsize * 2 + 1
+                )
+                next_down = (
+                    int(data[i + 1][pos]) if i < len(data) - 1 else sys.maxsize * 2 + 1
+                )
                 prev_up = int(data[i - 1][pos]) if i > 0 else sys.maxsize * 2 + 1
 
-                if height < prev_value and height < next_value and height < prev_up and height < next_down:
+                if (
+                    height < prev_value
+                    and height < next_value
+                    and height < prev_up
+                    and height < next_down
+                ):
                     print(f"Found low point {height} at position {i}, {pos}...")
                     basin_sizes.append(self.__find_basin_size(i, pos, data, height))
 
             basin_sizes.sort(reverse=True)
 
-            print(f"#09 (part 2) - The sum of the three largest basin sizes is {reduce((lambda a,b: a*b),basin_sizes[:3])}")
+            print(
+                "#09 (part 2) - The sum of the three largest basin sizes is"
+                f" {reduce((lambda a,b: a*b),basin_sizes[:3])}"
+            )
 
     def __find_basin_size(self, row, col, data, low_point):
         size = 0
