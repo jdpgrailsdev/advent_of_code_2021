@@ -31,9 +31,10 @@ class Puzzle11(PuzzleInterface):
             total_flashes += self.__flash(data)
             data = self.__reset(data)
 
-        print(f"#11 (part 1) - The total number of flashes after 100 turns is {total_flashes}")
-
-
+        print(
+            "#11 (part 1) - The total number of flashes after 100 turns is"
+            f" {total_flashes}"
+        )
 
     def __part2(self, data):
         """Executes the day 11 puzzle part 2"""
@@ -51,7 +52,6 @@ class Puzzle11(PuzzleInterface):
             data = self.__reset(data)
 
         print(f"#11 (part 2) - All octopi flash during step {step}")
-
 
     def __build_grid(self, data):
         grid = []

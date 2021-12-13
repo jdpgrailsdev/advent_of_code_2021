@@ -22,23 +22,27 @@ class Puzzle12(PuzzleInterface):
         """Executes the day 12 puzzle part 1"""
 
         paths = self.__build_graph(data)
-        available_paths = self.__find_paths('start', paths)
+        available_paths = self.__find_paths("start", paths)
         print(
-            f"#12 (part 1) - The number of paths through the cave system is {len(available_paths)}")
+            "#12 (part 1) - The number of paths through the cave system is"
+            f" {len(available_paths)}"
+        )
 
     def __part2(self, data):
         """Executes the day 12 puzzle part 2"""
 
         paths = self.__build_graph(data)
-        available_paths = self.__find_paths_2('start', paths)
+        available_paths = self.__find_paths_2("start", paths)
         print(
-            f"#12 (part 2) - The number of paths through the cave system is {len(available_paths)}")
+            "#12 (part 2) - The number of paths through the cave system is"
+            f" {len(available_paths)}"
+        )
 
     def __build_graph(self, data):
         paths = {}
 
         for d in data:
-            a, b = d.split('-')
+            a, b = d.split("-")
             if a not in paths:
                 paths[a] = set()
             if b not in paths:
@@ -57,12 +61,14 @@ class Puzzle12(PuzzleInterface):
 
         accumulated_path.append(path)
 
-        if path == 'end':
+        if path == "end":
             return [path]
 
         sub_paths = []
         for p in paths[path]:
-            sub_path = self.__find_paths(p, paths, visited.copy(), accumulated_path.copy())
+            sub_path = self.__find_paths(
+                p, paths, visited.copy(), accumulated_path.copy()
+            )
             if sub_path:
                 sub_paths.extend(sub_path)
 
@@ -70,7 +76,7 @@ class Puzzle12(PuzzleInterface):
 
     def __find_paths_2(self, path, paths, visited={}, accumulated_path=[]):
         if path in visited:
-            if path == 'start' or path == 'end':
+            if path == "start" or path == "end":
                 return []
             elif list(visited.values()).__contains__(2):
                 return []
@@ -81,12 +87,14 @@ class Puzzle12(PuzzleInterface):
 
         accumulated_path.append(path)
 
-        if path == 'end':
+        if path == "end":
             return [path]
 
         sub_paths = []
         for p in paths[path]:
-            sub_path = self.__find_paths_2(p, paths, visited.copy(), accumulated_path.copy())
+            sub_path = self.__find_paths_2(
+                p, paths, visited.copy(), accumulated_path.copy()
+            )
             if sub_path:
                 sub_paths.extend(sub_path)
 
