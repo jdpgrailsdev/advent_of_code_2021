@@ -29,7 +29,8 @@ class Puzzle14(PuzzleInterface):
         char_min, char_max = self.__find_min_max_character(template)
 
         print(
-            f"#14 (part 1) - The difference between the frequency of the most and least occurring polymer is {char_max - char_min}"
+            "#14 (part 1) - The difference between the frequency of the most and least"
+            f" occurring polymer is {char_max - char_min}"
         )
 
     def __part2(self, data):
@@ -40,7 +41,7 @@ class Puzzle14(PuzzleInterface):
 
         for i, t in enumerate(template):
             if i < len(template) - 1:
-                pair = t + template[i+1]
+                pair = t + template[i + 1]
                 if pair in pairs:
                     pairs[pair] += 1
                 else:
@@ -53,7 +54,8 @@ class Puzzle14(PuzzleInterface):
         min_count, max_count = pairs[char_min], pairs[char_max]
 
         print(
-            f"#14 (part 2) - The difference between the frequency of the most and least occurring polymer is {max_count - min_count}"
+            "#14 (part 2) - The difference between the frequency of the most and least"
+            f" occurring polymer is {max_count - min_count}"
         )
 
     def __load_data(self, data):
@@ -61,7 +63,7 @@ class Puzzle14(PuzzleInterface):
         rules = {}
 
         for d in data[2:]:
-            pair, polymer = d.split(' -> ')
+            pair, polymer = d.split(" -> ")
             rules[pair] = polymer
 
         return template, rules
@@ -71,14 +73,14 @@ class Puzzle14(PuzzleInterface):
 
         for i, t in enumerate(template):
             if i < len(template) - 1:
-                pair = t + template[i+1]
+                pair = t + template[i + 1]
                 polymers.append(pair[0])
                 if pair in rules:
                     polymers.append(rules[pair])
 
         polymers.append(template[-1])
 
-        return ''.join(polymers)
+        return "".join(polymers)
 
     def __generate_pairs(self, pairs, rules):
         new_pairs = {}
