@@ -2,7 +2,6 @@
 
 import math
 import os
-import sys
 
 from advent_of_code.puzzles.PuzzleInterface import PuzzleInterface
 
@@ -145,8 +144,6 @@ class Puzzle16(PuzzleInterface):
                 bits_processed, value = self.__process_packet_2(bits[index:])
                 results.append(value)
                 index += bits_processed
-
-        print(results)
 
         if type_id == 0:
             result = sum(results)
